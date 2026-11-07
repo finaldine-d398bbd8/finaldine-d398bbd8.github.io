@@ -1,0 +1,917 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>每日大赛91-赛事动态与选手数据解析_赛程回顾_热门对决</title>
+  <meta name="description" content="每日大赛91专注呈现每日大赛91的赛事动态、选手数据与热门对决解析。这里汇集赛程回顾、选手表现、战术拆解、FAQ与用户讨论，适合电竞爱好者与赛事关注者收藏查阅，快速了解每日大赛91的看点与趋势。">
+  <meta name="keywords" content="每日大赛91,赛事动态,选手数据,热门对决,赛程回顾">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23111827'/%3E%3Ctext x='50' y='68' font-size='48' text-anchor='middle' fill='%23fbbf24' font-weight='bold'%3E91%3C/text%3E%3C/svg%3E">
+  <style>
+    :root {
+      --bg: #0b0f19;
+      --bg-soft: #111827;
+      --bg-card: #1a2234;
+      --bg-card-hover: #1f2a40;
+      --border: #2a3650;
+      --text-primary: #f1f5f9;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+      --accent: #fbbf24;
+      --accent-soft: rgba(251, 191, 36, 0.15);
+      --accent2: #f97316;
+      --accent3: #22d3ee;
+      --radius: 12px;
+      --radius-sm: 8px;
+      --shadow: 0 4px 20px rgba(0,0,0,0.4);
+      --max-width: 1200px;
+      --font: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text-primary);
+      line-height: 1.7;
+      font-size: 15px;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    ul { list-style: none; }
+    .container { max-width: var(--max-width); margin: 0 auto; padding: 0 20px; }
+
+    /* 导航 */
+    .top-nav {
+      background: rgba(11,15,25,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      position: sticky; top: 0; z-index: 100;
+    }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      height: 60px; max-width: var(--max-width); margin: 0 auto; padding: 0 20px;
+    }
+    .logo-badge {
+      display: flex; align-items: center; gap: 10px;
+      font-weight: 800; font-size: 20px; letter-spacing: 0.5px;
+    }
+    .logo-icon {
+      width: 34px; height: 34px; border-radius: 8px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 15px; font-weight: 900; color: #0b0f19;
+    }
+    .logo-text { color: var(--text-primary); }
+    .logo-text span { color: var(--accent); }
+    .nav-links { display: flex; gap: 6px; flex-wrap: wrap; }
+    .nav-links a {
+      padding: 6px 14px; border-radius: 20px; font-size: 14px;
+      color: var(--text-secondary); transition: all 0.2s;
+    }
+    .nav-links a:hover { background: var(--accent-soft); color: var(--accent); }
+
+    /* Banner */
+    .hero-section {
+      background: linear-gradient(155deg, #0f172a 0%, #1a1f35 50%, #0f172a 100%);
+      padding: 56px 0 48px; border-bottom: 1px solid var(--border);
+      position: relative; overflow: hidden;
+    }
+    .hero-section::before {
+      content: ''; position: absolute; top: -80px; right: -80px;
+      width: 320px; height: 320px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(251,191,36,0.08), transparent 70%);
+    }
+    .hero-section::after {
+      content: ''; position: absolute; bottom: -100px; left: -60px;
+      width: 260px; height: 260px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(34,211,238,0.06), transparent 70%);
+    }
+    .hero-content { position: relative; z-index: 1; max-width: 820px; }
+    .hero-tag {
+      display: inline-block; background: var(--accent-soft); color: var(--accent);
+      font-size: 12px; font-weight: 600; padding: 4px 14px; border-radius: 20px;
+      margin-bottom: 16px; letter-spacing: 1px;
+    }
+    .hero-content h1 {
+      font-size: 34px; font-weight: 800; line-height: 1.3;
+      margin-bottom: 14px; letter-spacing: 0.5px;
+    }
+    .hero-content h1 span { color: var(--accent); }
+    .hero-desc {
+      color: var(--text-secondary); font-size: 15px; line-height: 1.8;
+      margin-bottom: 24px; max-width: 680px;
+    }
+    .hero-search {
+      display: flex; gap: 0; max-width: 500px; margin-bottom: 22px;
+      border-radius: 10px; overflow: hidden; border: 1px solid var(--border);
+    }
+    .hero-search input {
+      flex: 1; padding: 12px 16px; background: var(--bg-soft);
+      border: none; color: var(--text-primary); font-size: 14px; outline: none;
+    }
+    .hero-search input::placeholder { color: var(--text-muted); }
+    .hero-search button {
+      padding: 12px 24px; background: var(--accent); color: #0b0f19;
+      border: none; font-weight: 700; font-size: 14px; cursor: pointer;
+      transition: background 0.2s;
+    }
+    .hero-search button:hover { background: #f59e0b; }
+    .hero-btns { display: flex; gap: 10px; flex-wrap: wrap; }
+    .hero-btns a {
+      padding: 8px 20px; border-radius: 24px; font-size: 13px;
+      border: 1px solid var(--border); color: var(--text-secondary);
+      transition: all 0.2s;
+    }
+    .hero-btns a:hover, .hero-btns a.active {
+      background: var(--accent); color: #0b0f19; border-color: var(--accent);
+      font-weight: 600;
+    }
+
+    /* 通用 section */
+    .section { padding: 44px 0; }
+    .section-alt { background: var(--bg-soft); }
+    .section-header {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 26px; flex-wrap: wrap; gap: 12px;
+    }
+    .section-header h2 {
+      font-size: 22px; font-weight: 700; position: relative; padding-left: 14px;
+    }
+    .section-header h2::before {
+      content: ''; position: absolute; left: 0; top: 4px; bottom: 4px;
+      width: 4px; border-radius: 2px;
+      background: linear-gradient(180deg, var(--accent), var(--accent2));
+    }
+    .section-header .more-link {
+      font-size: 13px; color: var(--text-muted); transition: color 0.2s;
+    }
+    .section-header .more-link:hover { color: var(--accent); }
+
+    /* 卡片网格 */
+    .card-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+      gap: 18px;
+    }
+    .card {
+      background: var(--bg-card); border-radius: var(--radius);
+      border: 1px solid var(--border); padding: 20px;
+      transition: all 0.25s; box-shadow: var(--shadow);
+      display: flex; flex-direction: column;
+    }
+    .card:hover {
+      transform: translateY(-3px); background: var(--bg-card-hover);
+      border-color: rgba(251,191,36,0.3);
+    }
+    .card-tag-row { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px; }
+    .card-tag {
+      font-size: 11px; padding: 2px 10px; border-radius: 12px;
+      background: var(--accent-soft); color: var(--accent); font-weight: 600;
+    }
+    .card-tag.blue { background: rgba(34,211,238,0.12); color: var(--accent3); }
+    .card-tag.orange { background: rgba(249,115,22,0.12); color: var(--accent2); }
+    .card h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; line-height: 1.4; }
+    .card p { font-size: 13px; color: var(--text-secondary); line-height: 1.7; flex: 1; margin-bottom: 12px; }
+    .card-meta {
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 12px; color: var(--text-muted); padding-top: 10px;
+      border-top: 1px solid var(--border);
+    }
+    .card-meta .hot { color: var(--accent2); font-weight: 600; }
+    .card-meta .score { color: var(--accent); font-weight: 700; }
+
+    /* 列表 */
+    .list-block { display: flex; flex-direction: column; gap: 12px; }
+    .list-item {
+      display: flex; align-items: flex-start; gap: 14px;
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--radius-sm); padding: 16px 18px;
+      transition: all 0.2s;
+    }
+    .list-item:hover { border-color: rgba(251,191,36,0.3); background: var(--bg-card-hover); }
+    .list-num {
+      font-size: 18px; font-weight: 800; color: var(--accent); min-width: 28px;
+      text-align: center; line-height: 1.4;
+    }
+    .list-body { flex: 1; }
+    .list-body h4 { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+    .list-body p { font-size: 13px; color: var(--text-secondary); }
+    .list-time { font-size: 12px; color: var(--text-muted); white-space: nowrap; }
+
+    /* 分类入口 */
+    .cat-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+      gap: 12px;
+    }
+    .cat-item {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--radius-sm); padding: 16px 12px;
+      text-align: center; transition: all 0.2s; cursor: pointer;
+    }
+    .cat-item:hover { border-color: var(--accent); background: var(--accent-soft); }
+    .cat-item .cat-icon { font-size: 24px; margin-bottom: 6px; }
+    .cat-item .cat-name { font-size: 13px; font-weight: 600; color: var(--text-secondary); }
+    .cat-item:hover .cat-name { color: var(--accent); }
+
+    /* 深度解析 */
+    .deep-dive {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 32px;
+    }
+    .deep-dive h3 { font-size: 18px; margin-bottom: 14px; color: var(--accent); }
+    .deep-dive p {
+      font-size: 14px; color: var(--text-secondary); line-height: 1.9;
+      margin-bottom: 14px;
+    }
+    .deep-dive p:last-child { margin-bottom: 0; }
+    .deep-dive .highlight { color: var(--accent); font-weight: 600; }
+
+    /* FAQ */
+    .faq-list { display: flex; flex-direction: column; gap: 10px; }
+    .faq-item {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--radius-sm); overflow: hidden;
+    }
+    .faq-q {
+      padding: 16px 20px; font-weight: 600; font-size: 14px;
+      cursor: pointer; display: flex; justify-content: space-between; align-items: center;
+      transition: background 0.2s;
+    }
+    .faq-q:hover { background: var(--bg-card-hover); }
+    .faq-q .arrow { color: var(--text-muted); font-size: 12px; transition: transform 0.2s; }
+    .faq-item.open .faq-q .arrow { transform: rotate(180deg); }
+    .faq-a {
+      padding: 0 20px; max-height: 0; overflow: hidden;
+      transition: all 0.3s ease; font-size: 13px; color: var(--text-secondary);
+      line-height: 1.8;
+    }
+    .faq-item.open .faq-a { max-height: 300px; padding: 0 20px 16px; }
+
+    /* 评论 */
+    .comment-list { display: flex; flex-direction: column; gap: 14px; }
+    .comment-item {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--radius-sm); padding: 16px 18px;
+    }
+    .comment-head {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-bottom: 8px;
+    }
+    .comment-user { display: flex; align-items: center; gap: 8px; }
+    .avatar {
+      width: 30px; height: 30px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px; font-weight: 700; color: #0b0f19;
+    }
+    .comment-name { font-size: 13px; font-weight: 600; }
+    .comment-time { font-size: 11px; color: var(--text-muted); }
+    .comment-text { font-size: 13px; color: var(--text-secondary); line-height: 1.7; }
+
+    /* 资讯 */
+    .news-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 16px;
+    }
+    .news-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 20px; transition: all 0.2s;
+    }
+    .news-card:hover { border-color: rgba(251,191,36,0.3); }
+    .news-date { font-size: 12px; color: var(--accent); font-weight: 600; margin-bottom: 6px; }
+    .news-card h4 { font-size: 15px; margin-bottom: 6px; line-height: 1.5; }
+    .news-card p { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+
+    /* 页脚 */
+    .footer {
+      background: var(--bg-soft); border-top: 1px solid var(--border);
+      padding: 36px 0 24px; margin-top: 20px;
+    }
+    .footer-inner {
+      max-width: var(--max-width); margin: 0 auto; padding: 0 20px;
+      display: flex; flex-direction: column; gap: 20px;
+    }
+    .footer-top {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      flex-wrap: wrap; gap: 24px;
+    }
+    .footer-brand { max-width: 340px; }
+    .footer-brand .logo-badge { margin-bottom: 10px; }
+    .footer-brand p { font-size: 12px; color: var(--text-muted); line-height: 1.7; }
+    .footer-links { display: flex; gap: 40px; flex-wrap: wrap; }
+    .footer-col h5 { font-size: 13px; font-weight: 700; margin-bottom: 10px; color: var(--text-secondary); }
+    .footer-col a {
+      display: block; font-size: 12px; color: var(--text-muted);
+      margin-bottom: 6px; transition: color 0.2s;
+    }
+    .footer-col a:hover { color: var(--accent); }
+    .footer-bottom {
+      border-top: 1px solid var(--border); padding-top: 16px;
+      font-size: 12px; color: var(--text-muted); text-align: center;
+      line-height: 1.8;
+    }
+
+    /* 响应式 */
+    @media (max-width: 768px) {
+      .hero-content h1 { font-size: 26px; }
+      .card-grid { grid-template-columns: 1fr; }
+      .news-grid { grid-template-columns: 1fr; }
+      .cat-grid { grid-template-columns: repeat(2, 1fr); }
+      .nav-links { display: none; }
+      .deep-dive { padding: 20px; }
+      .footer-links { gap: 24px; flex-direction: column; }
+      .section { padding: 30px 0; }
+    }
+    @media (max-width: 480px) {
+      .hero-content h1 { font-size: 22px; }
+      .hero-search { flex-direction: column; }
+      .hero-search button { width: 100%; }
+      .list-item { flex-direction: column; gap: 8px; }
+      .list-time { align-self: flex-end; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- 导航 -->
+<nav class="top-nav">
+  <div class="nav-inner">
+    <a href="/#hero-banner" class="logo-badge">
+      <div class="logo-icon">91</div>
+      <div class="logo-text">每日大赛<span>91</span></div>
+    </a>
+    <div class="nav-links">
+      <a href="/#hot-recommend">热门推荐</a>
+      <a href="/#latest-update">最新动态</a>
+      <a href="/#category-entry">分类入口</a>
+      <a href="/#deep-analysis">深度解析</a>
+      <a href="/#faq-area">常见问题</a>
+      <a href="/#user-comments">用户评论</a>
+      <a href="/#news-feed">赛事资讯</a>
+    </div>
+  </div>
+</nav>
+
+<!-- 首屏 Banner -->
+<header class="hero-section" id="hero-banner">
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-tag">🔥 每日大赛91 · 赛事追踪专题</div>
+      <h1>每日大赛91：赛事动态、选手数据与热门对决一站掌握</h1>
+      <p class="hero-desc">
+        每日大赛91聚焦每日赛事热点，整合选手数据、战术复盘与热门对决解析。无论你是追踪赛程的老观众，还是刚接触赛事的新朋友，都能在这里找到有价值的参考信息，轻松跟上每一场比赛的节奏。
+      </p>
+      <div class="hero-search">
+        <input type="text" placeholder="搜索选手、赛事、战队或关键词…" aria-label="搜索每日大赛91相关内容">
+        <button type="button">搜索</button>
+      </div>
+      <div class="hero-btns">
+        <a href="/#hot-recommend" class="active">热门推荐</a>
+        <a href="/#latest-update">最新赛况</a>
+        <a href="/#category-entry">分类浏览</a>
+        <a href="/#deep-analysis">深度解析</a>
+        <a href="/#faq-area">常见问题</a>
+        <a href="/#user-comments">社区讨论</a>
+        <a href="/#news-feed">赛事资讯</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- 内容简介 -->
+  <section class="section" id="intro-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>关于每日大赛91：这里能帮你了解什么</h2>
+      </div>
+      <div class="deep-dive">
+        <p>
+          <span class="highlight">每日大赛91</span>是一个围绕每日赛事展开的内容聚合专题，核心关注选手表现、赛程走向与战术风格。很多用户在搜索“每日大赛91”时，往往希望快速了解当天或近期的比赛结果、关键选手数据、精彩对决回顾以及后续赛程安排。本页面正是围绕这些需求，将散落的赛事信息进行整理和归类，帮助你在一个页面内完成从“知道结果”到“看懂门道”的浏览路径。
+        </p>
+        <p>
+          页面内容覆盖多个维度：热门推荐帮助你发现值得关注的对决，最新动态让你不错过关键赛果与选手变动，分类入口方便按赛事类型或选手风格筛选，深度解析则从战术和节奏层面拆解比赛看点。如果你是赛事爱好者，这里适合作为每天快速浏览的入口；如果你刚开始关注每日大赛91，页面中的基础介绍和FAQ也能帮你建立基本认知。内容持续更新，适合收藏后反复查阅。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 热门推荐 -->
+  <section class="section section-alt" id="hot-recommend">
+    <div class="container">
+      <div class="section-header">
+        <h2>热门内容推荐 · 每日大赛91精选对决</h2>
+        <a href="/#latest-update" class="more-link">查看更多 →</a>
+      </div>
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-tag-row">
+            <span class="card-tag">焦点战</span>
+            <span class="card-tag blue">战术博弈</span>
+            <span class="card-tag orange">高热度</span>
+          </div>
+          <h3>91联赛·东部焦点战：逆转与反制的拉锯</h3>
+          <p>双方在决胜局频繁切换节奏，中野联动成为胜负手。赛后数据看，控图率与团战参与率均创下本周新高，值得反复复盘。</p>
+          <div class="card-meta">
+            <span class="hot">🔥 热度 9.8万</span>
+            <span class="score">★★★★★</span>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-tag-row">
+            <span class="card-tag">新秀登场</span>
+            <span class="card-tag blue">选手观察</span>
+            <span class="card-tag orange">潜力股</span>
+          </div>
+          <h3>新人选手“白夜”首秀数据解析</h3>
+          <p>首次登场即贡献全场最高参团率，对线细节略显紧张，但团战决策超出预期。每日大赛91的观众已经开始讨论他的成长空间。</p>
+          <div class="card-meta">
+            <span class="hot">🔥 热度 7.2万</span>
+            <span class="score">★★★★☆</span>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-tag-row">
+            <span class="card-tag">经典重演</span>
+            <span class="card-tag blue">宿敌对决</span>
+            <span class="card-tag orange">话题战</span>
+          </div>
+          <h3>宿敌再会：91赛区老牌强队的攻防转换</h3>
+          <p>两队过去五次交手各有胜负，本场在BP阶段就展开心理博弈。前期资源置换与后期团战拉扯，呈现出典型的赛区风格碰撞。</p>
+          <div class="card-meta">
+            <span class="hot">🔥 热度 9.1万</span>
+            <span class="score">★★★★★</span>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-tag-row">
+            <span class="card-tag">黑马之路</span>
+            <span class="card-tag blue">赛程回顾</span>
+            <span class="card-tag orange">逆袭</span>
+          </div>
+          <h3>从垫底到四强：一支黑马战队的91赛程复盘</h3>
+          <p>赛季初不被看好，中期调整阵容后一路攀升。通过每日大赛91的赛程数据，可以看到他们在资源控制与视野布控上的显著进步。</p>
+          <div class="card-meta">
+            <span class="hot">🔥 热度 8.4万</span>
+            <span class="score">★★★★☆</span>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-tag-row">
+            <span class="card-tag">名场面</span>
+            <span class="card-tag blue">高光时刻</span>
+            <span class="card-tag orange">经典</span>
+          </div>
+          <h3>每日大赛91本周名场面：极限守家与反一波</h3>
+          <p>在劣势巨大的情况下依靠辅助关键开团完成翻盘，这场对决在社区引发大量讨论。每日大赛91的评论区也在持续更新观众视角的复盘分析。</p>
+          <div class="card-meta">
+            <span class="hot">🔥 热度 8.9万</span>
+            <span class="score">★★★★★</span>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-tag-row">
+            <span class="card-tag">数据观察</span>
+            <span class="card-tag blue">选手对比</span>
+            <span class="card-tag orange">深度</span>
+          </div>
+          <h3>每日大赛91选手数据对比：中单参团率趋势</h3>
+          <p>对比近两周中单选手的参团率与伤害转化率，可以看到不同战队的战术重心正在发生偏移，部分队伍开始更依赖中野联动。</p>
+          <div class="card-meta">
+            <span class="hot">🔥 热度 6.8万</span>
+            <span class="score">★★★★☆</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 最新更新 -->
+  <section class="section" id="latest-update">
+    <div class="container">
+      <div class="section-header">
+        <h2>最新更新 · 每日大赛91赛况动态</h2>
+      </div>
+      <div class="list-block">
+        <div class="list-item">
+          <div class="list-num">01</div>
+          <div class="list-body">
+            <h4>91联赛·A组第二轮：蓝方战队2:1逆转取胜</h4>
+            <p>决胜局依靠中期大龙团战的完美配合完成翻盘，打野选手“孤狼”获得本场MVP。</p>
+          </div>
+          <div class="list-time">2026-11-07</div>
+        </div>
+        <div class="list-item">
+          <div class="list-num">02</div>
+          <div class="list-body">
+            <h4>每日大赛91今日赛程：三场焦点对决即将开打</h4>
+            <p>下午场率先进行新老选手对抗，晚间场迎来东部强强对话，社区讨论热度持续攀升。</p>
+          </div>
+          <div class="list-time">2026-11-07</div>
+        </div>
+        <div class="list-item">
+          <div class="list-num">03</div>
+          <div class="list-body">
+            <h4>选手“白夜”赛后采访：首秀紧张但享受舞台</h4>
+            <p>谈到每日大赛91的赛场氛围时表示，观众的呐喊让自己更快进入状态，后续会继续打磨对线细节。</p>
+          </div>
+          <div class="list-time">2026-11-06</div>
+        </div>
+        <div class="list-item">
+          <div class="list-num">04</div>
+          <div class="list-body">
+            <h4>91赛区装备选择趋势：防御装优先级上升</h4>
+            <p>近三日的比赛中，前排英雄的生存类装备选择率提高约12%，团战容错率成为教练组关注重点。</p>
+          </div>
+          <div class="list-time">2026-11-06</div>
+        </div>
+        <div class="list-item">
+          <div class="list-num">05</div>
+          <div class="list-body">
+            <h4>每日大赛91社区投票：本周最佳名场面结果出炉</h4>
+            <p>“极限守家反一波”以43%得票率当选，相关复盘视频在社区内持续传播。</p>
+          </div>
+          <div class="list-time">2026-11-05</div>
+        </div>
+        <div class="list-item">
+          <div class="list-num">06</div>
+          <div class="list-body">
+            <h4>战队训练赛动态：多支队伍尝试新阵容体系</h4>
+            <p>据公开信息整理，部分战队在训练赛中尝试双核体系，每日大赛91后续赛程或出现新的战术变化。</p>
+          </div>
+          <div class="list-time">2026-11-05</div>
+        </div>
+        <div class="list-item">
+          <div class="list-num">07</div>
+          <div class="list-body">
+            <h4>裁判组公布昨日比赛设备检测结果：全部合规</h4>
+            <p>官方通报显示设备与网络环境符合赛事标准，比赛结果有效。</p>
+          </div>
+          <div class="list-time">2026-11-04</div>
+        </div>
+        <div class="list-item">
+          <div class="list-num">08</div>
+          <div class="list-body">
+            <h4>每日大赛91数据专栏：打野路线选择与胜率关联</h4>
+            <p>通过近20场对局的数据整理，分析不同开局路线对前期节奏的影响，供赛事关注者参考。</p>
+          </div>
+          <div class="list-time">2026-11-04</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 分类入口 -->
+  <section class="section section-alt" id="category-entry">
+    <div class="container">
+      <div class="section-header">
+        <h2>分类入口 · 按维度浏览每日大赛91</h2>
+      </div>
+      <div class="cat-grid">
+        <div class="cat-item">
+          <div class="cat-icon">⚔️</div>
+          <div class="cat-name">焦点对决</div>
+        </div>
+        <div class="cat-item">
+          <div class="cat-icon">📊</div>
+          <div class="cat-name">选手数据</div>
+        </div>
+        <div class="cat-item">
+          <div class="cat-icon">🧠</div>
+          <div class="cat-name">战术复盘</div>
+        </div>
+        <div class="cat-item">
+          <div class="cat-icon">🏆</div>
+          <div class="cat-name">赛果汇总</div>
+        </div>
+        <div class="cat-item">
+          <div class="cat-icon">🌟</div>
+          <div class="cat-name">新秀观察</div>
+        </div>
+        <div class="cat-item">
+          <div class="cat-icon">📅</div>
+          <div class="cat-name">赛程日历</div>
+        </div>
+        <div class="cat-item">
+          <div class="cat-icon">🔥</div>
+          <div class="cat-name">名场面</div>
+        </div>
+        <div class="cat-item">
+          <div class="cat-icon">💬</div>
+          <div class="cat-name">社区热议</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 深度解析 -->
+  <section class="section" id="deep-analysis">
+    <div class="container">
+      <div class="section-header">
+        <h2>深度解析 · 每日大赛91的竞技看点与内容价值</h2>
+      </div>
+      <div class="deep-dive">
+        <h3>赛事类型与节奏特点</h3>
+        <p>
+          每日大赛91延续了赛区一贯的快节奏对抗风格，前期资源争夺频繁，中后期团战决策往往在短时间内决定胜负。与偏重运营的赛区相比，这里的比赛更强调选手的个人操作和临场反应，因此经常出现“看似劣势却依靠一波团战翻盘”的局面。这种风格让观众在观看时保持较高的注意力，也使得赛后复盘更有讨论空间。
+        </p>
+        <h3>选手表现与战术重心</h3>
+        <p>
+          在每日大赛91的赛场上，中野联动是大多数战队的战术核心。打野的路线选择直接影响前期节奏，而中单的推线权则决定了资源争夺的主动权。近期比赛中，辅助位的游走频率明显提高，部分队伍开始尝试让辅助在前期配合打野入侵，以打乱对手的部署。选手数据方面，参团率与伤害转化率是衡量表现的重要指标，但单纯看数据容易忽略视野布控和开团时机等难以量化的贡献。
+        </p>
+        <h3>适合人群与消费建议</h3>
+        <p>
+          每日大赛91的内容适合对竞技对抗感兴趣的观众，无论是关注赛果的轻度用户，还是喜欢研究战术的深度爱好者，都能在页面中找到对应的板块。如果你时间有限，建议先浏览“最新更新”了解赛果，再通过“热门推荐”选择感兴趣的对决进行复盘；如果你希望系统了解赛区风格，可以从深度解析和FAQ入手，逐步建立对每日大赛91的整体认知。
+        </p>
+        <h3>与同类内容的比较</h3>
+        <p>
+          相比单一的赛果播报，每日大赛91更注重信息之间的关联性：选手数据与战术选择相互印证，赛程动态与社区讨论形成互补。对于搜索“每日大赛91”的用户来说，页面提供的不仅是结果，还有理解比赛的角度。这种内容组织方式在赛事专题中较为少见，也使得页面更适合收藏后长期查阅。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section section-alt" id="faq-area">
+    <div class="container">
+      <div class="section-header">
+        <h2>常见问题 · 关于每日大赛91的答疑</h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-q">每日大赛91主要涵盖哪些内容？<span class="arrow">▼</span></div>
+          <div class="faq-a">页面围绕每日大赛91的赛事动态展开，包括赛果汇总、选手数据、战术复盘、热门对决推荐、赛程更新以及社区讨论。内容按模块分类，方便快速定位感兴趣的信息，同时提供深度解析帮助理解比赛背后的战术逻辑。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">我是新观众，应该从哪里开始看？<span class="arrow">▼</span></div>
+          <div class="faq-a">建议先阅读“内容简介”和“深度解析”了解赛区风格，再通过“最新更新”熟悉近期赛况。如果对某位选手或某场对决感兴趣，可以进入“热门推荐”查看对应卡片，逐步建立对每日大赛91的整体印象。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">页面数据多久更新一次？<span class="arrow">▼</span></div>
+          <div class="faq-a">赛事动态和赛果信息会跟随比赛日进行更新，选手数据和战术分析类内容通常在赛后整理发布。由于每日大赛91的赛程较为密集，建议收藏页面后定期回访，或关注“最新更新”板块的变化。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">每日大赛91的选手数据怎么看更有价值？<span class="arrow">▼</span></div>
+          <div class="faq-a">建议将参团率、伤害转化率与经济占比结合起来看，同时关注选手在不同局势下的决策变化。数据面板能反映趋势，但具体表现仍需结合比赛录像和战术背景理解，页面中的深度解析会提供相应的解读角度。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">如何找到特定选手或战队的相关内容？<span class="arrow">▼</span></div>
+          <div class="faq-a">可以使用首屏搜索框输入选手ID或战队名称，也可以通过分类入口中的“选手数据”“焦点对决”等标签进行筛选。页面内的相关推荐卡片也会根据热门话题进行组合，方便顺藤摸瓜找到更多内容。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">每日大赛91适合哪些人收藏？<span class="arrow">▼</span></div>
+          <div class="faq-a">适合关注每日赛事动态的观众、喜欢研究战术的深度爱好者、以及希望快速了解赛区风格的新观众。页面内容兼顾速览和深度阅读，无论是利用碎片时间看赛果，还是赛后系统复盘，都能找到合适的入口。</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 用户评论 -->
+  <section class="section" id="user-comments">
+    <div class="container">
+      <div class="section-header">
+        <h2>用户评论 · 社区短评与讨论</h2>
+      </div>
+      <div class="comment-list">
+        <div class="comment-item">
+          <div class="comment-head">
+            <div class="comment-user">
+              <div class="avatar">夜</div>
+              <span class="comment-name">夜航星</span>
+            </div>
+            <span class="comment-time">2026-11-06</span>
+          </div>
+          <p class="comment-text">每日大赛91的赛程更新挺及时的，昨天那场逆转我错过了直播，来这里看了下结果和评论，大概能还原出当时的情况。</p>
+        </div>
+        <div class="comment-item">
+          <div class="comment-head">
+            <div class="comment-user">
+              <div class="avatar">刀</div>
+              <span class="comment-name">刀客塔</span>
+            </div>
+            <span class="comment-time">2026-11-06</span>
+          </div>
+          <p class="comment-text">深度解析里关于中野联动的部分写得比较清楚，不像有些地方只堆数据。希望后面能多出点辅助视角的分析。</p>
+        </div>
+        <div class="comment-item">
+          <div class="comment-head">
+            <div class="comment-user">
+              <div class="avatar">白</div>
+              <span class="comment-name">白开水加冰</span>
+            </div>
+            <span class="comment-time">2026-11-05</span>
+          </div>
+          <p class="comment-text">新秀白夜的首秀确实亮眼，不过对线细节还是有点糙，看看后面几场能不能稳住。每日大赛91的选手观察栏目可以多推点新人。</p>
+        </div>
+        <div class="comment-item">
+          <div class="comment-head">
+            <div class="comment-user">
+              <div class="avatar">老</div>
+              <span class="comment-name">老赛区观众</span>
+            </div>
+            <span class="comment-time">2026-11-05</span>
+          </div>
+          <p class="comment-text">看了几年比赛，每日大赛91的节奏确实快，团战一波接一波。不过有时候觉得暂停太多，影响观感。</p>
+        </div>
+        <div class="comment-item">
+          <div class="comment-head">
+            <div class="comment-user">
+              <div class="avatar">数</div>
+              <span class="comment-name">数据控阿泽</span>
+            </div>
+            <span class="comment-time">2026-11-04</span>
+          </div>
+          <p class="comment-text">选手数据对比那块如果能加上分均伤害和承伤占比就更完整了。现在看参团率趋势已经有点意思了，收藏了慢慢看。</p>
+        </div>
+        <div class="comment-item">
+          <div class="comment-head">
+            <div class="comment-user">
+              <div class="avatar">柠</div>
+              <span class="comment-name">柠檬不酸</span>
+            </div>
+            <span class="comment-time">2026-11-04</span>
+          </div>
+          <p class="comment-text">评论区氛围还可以，没有太多无脑互喷。想问问大家觉得本周最佳比赛是哪场？我投东部焦点战一票。</p>
+        </div>
+        <div class="comment-item">
+          <div class="comment-head">
+            <div class="comment-user">
+              <div class="avatar">路</div>
+              <span class="comment-name">路过看比赛</span>
+            </div>
+            <span class="comment-time">2026-11-03</span>
+          </div>
+          <p class="comment-text">页面结构挺清楚的，找赛果和赛程不费劲。不过手机上看列表稍微有点长，如果能折叠一下会更方便。</p>
+        </div>
+        <div class="comment-item">
+          <div class="comment-head">
+            <div class="comment-user">
+              <div class="avatar">战</div>
+              <span class="comment-name">战术板小刘</span>
+            </div>
+            <span class="comment-time">2026-11-03</span>
+          </div>
+          <p class="comment-text">名场面那个极限守家确实精彩，不过我觉得对面的决策问题更大，优势局不该那么急。每日大赛91的复盘如果能加上教练视角就好了。</p>
+        </div>
+        <div class="comment-item">
+          <div class="comment-head">
+            <div class="comment-user">
+              <div class="avatar">追</div>
+              <span class="comment-name">追更中</span>
+            </div>
+            <span class="comment-time">2026-11-02</span>
+          </div>
+          <p class="comment-text">每天下班第一件事就是来看看91的赛果，已经成为习惯了。希望资讯板块能多更新点场外动态，训练赛之类的也挺有意思。</p>
+        </div>
+        <div class="comment-item">
+          <div class="comment-head">
+            <div class="comment-user">
+              <div class="avatar">冷</div>
+              <span class="comment-name">冷静分析</span>
+            </div>
+            <span class="comment-time">2026-11-02</span>
+          </div>
+          <p class="comment-text">最近装备选择趋势那篇挺有用的，自己打排位也能参考。就是每日大赛91的赛程太密集了，看不过来了。</p>
+        </div>
+        <div class="comment-item">
+          <div class="comment-head">
+            <div class="comment-user">
+              <div class="avatar">小</div>
+              <span class="comment-name">小透明观赛</span>
+            </div>
+            <span class="comment-time">2026-11-01</span>
+          </div>
+          <p class="comment-text">刚开始看比赛没多久，FAQ挺友好的，至少知道该从哪看起了。希望以后能多出点术语解释。</p>
+        </div>
+        <div class="comment-item">
+          <div class="comment-head">
+            <div class="comment-user">
+              <div class="avatar">电</div>
+              <span class="comment-name">电竞老猫</span>
+            </div>
+            <span class="comment-time">2026-11-01</span>
+          </div>
+          <p class="comment-text">每日大赛91的热门推荐选得还可以，没全是流量队，有些冷门对决也放进来了，这点不错。</p>
+        </div>
+        <div class="comment-item">
+          <div class="comment-head">
+            <div class="comment-user">
+              <div class="avatar">月</div>
+              <span class="comment-name">月半弯</span>
+            </div>
+            <span class="comment-time">2026-10-31</span>
+          </div>
+          <p class="comment-text">评论区能不能加个按时间排序？现在看最新讨论有点不方便。</p>
+        </div>
+        <div class="comment-item">
+          <div class="comment-head">
+            <div class="comment-user">
+              <div class="avatar">一</div>
+              <span class="comment-name">一只小辅助</span>
+            </div>
+            <span class="comment-time">2026-10-30</span>
+          </div>
+          <p class="comment-text">辅助玩家表示希望多看到些视野布控的分析，每日大赛91的深度解析目前还是偏中野，有点小遗憾。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 相关资讯 -->
+  <section class="section section-alt" id="news-feed">
+    <div class="container">
+      <div class="section-header">
+        <h2>相关资讯 · 每日大赛91动态速递</h2>
+      </div>
+      <div class="news-grid">
+        <div class="news-card">
+          <div class="news-date">2026-11-07</div>
+          <h4>每日大赛91赛程过半：季后赛席位争夺进入白热化</h4>
+          <p>随着常规赛进入后半段，多支战队积分接近，后续每一场比赛都可能影响排名。每日大赛91的赛程页面将持续更新对阵信息。</p>
+        </div>
+        <div class="news-card">
+          <div class="news-date">2026-11-06</div>
+          <h4>选手“孤狼”蝉联周MVP：打野节奏带动全队</h4>
+          <p>近一周比赛中，孤狼在前期资源控制与团战开团方面表现突出，帮助战队取得三连胜。相关数据已在每日大赛91页面更新。</p>
+        </div>
+        <div class="news-card">
+          <div class="news-date">2026-11-05</div>
+          <h4>91赛区战术风向：双核体系使用率上升</h4>
+          <p>从近十场对局来看，双核体系的登场率明显提高，部分战队开始尝试让中下两路分担输出压力。每日大赛91的战术复盘栏目将跟进分析。</p>
+        </div>
+        <div class="news-card">
+          <div class="news-date">2026-11-04</div>
+          <h4>每日大赛91观众投票：最期待的对决排名出炉</h4>
+          <p>社区投票显示，东部强强对话成为本周最受期待的比赛。页面热门推荐板块已整理相关对决看点，方便提前了解背景信息。</p>
+        </div>
+        <div class="news-card">
+          <div class="news-date">2026-11-03</div>
+          <h4>赛事设备升级完成：后续比赛将采用新版本</h4>
+          <p>官方公告显示比赛设备已完成升级，每日大赛91后续赛程将在新环境下进行，选手适应情况值得关注。</p>
+        </div>
+        <div class="news-card">
+          <div class="news-date">2026-11-02</div>
+          <h4>新秀选手表现追踪：多位新人进入首发名单</h4>
+          <p>近期多支战队调整首发阵容，新人选手获得更多出场机会。每日大赛91的选手观察板块将持续整理新人数据与表现亮点。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- 页脚 -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo-badge">
+          <div class="logo-icon">91</div>
+          <div class="logo-text">每日大赛<span>91</span></div>
+        </div>
+        <p>每日大赛91专题页，汇集赛事动态、选手数据与战术解析，为赛事关注者提供结构化的内容参考。页面信息整理自公开赛事内容，仅供浏览与交流。</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h5>内容导航</h5>
+          <a href="/#hot-recommend">热门推荐</a>
+          <a href="/#latest-update">最新动态</a>
+          <a href="/#category-entry">分类入口</a>
+          <a href="/#deep-analysis">深度解析</a>
+        </div>
+        <div class="footer-col">
+          <h5>社区与帮助</h5>
+          <a href="/#faq-area">常见问题</a>
+          <a href="/#user-comments">用户评论</a>
+          <a href="/#news-feed">赛事资讯</a>
+        </div>
+        <div class="footer-col">
+          <h5>友情链接</h5>
+          <a href="#">赛事数据中心（占位）</a>
+          <a href="#">选手资料库（占位）</a>
+          <a href="#">社区讨论版（占位）</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 每日大赛91专题页 · 内容整理与页面设计仅用于信息展示。</p>
+      <p>免责声明：本页面所载赛事信息、选手数据及评论内容均基于公开信息整理，不构成任何形式的官方声明或投注建议。请理性观赛。</p>
+    </div>
+  </div>
+</footer>
+
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+<script>
+  // FAQ 手风琴
+  document.querySelectorAll('.faq-q').forEach(function(el) {
+    el.addEventListener('click', function() {
+      var item = this.parentElement;
+      var isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(function(i) { i.classList.remove('open'); });
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+</script>
+</body>
+  </html>
